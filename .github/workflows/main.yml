@@ -22,5 +22,4 @@ jobs:
 
     - name: Run flake8
       run: nbqa flake8 main.ipynb
-      working-directory: myblog
       continue-on-error: false
