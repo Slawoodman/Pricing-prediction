@@ -1,10 +1,11 @@
 import streamlit as st
 import joblib
 import numpy as np
+import os
 import base64
 
-
-model = joblib.load("house_prices_model.pkl")
+model = joblib.load("model/house_prices_model.pkl")
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
 
 def get_base64_of_bin_file(bin_file):
@@ -13,8 +14,8 @@ def get_base64_of_bin_file(bin_file):
     return base64.b64encode(data).decode()
 
 
-background_image = get_base64_of_bin_file("home.jpg")
-
+background_image_path = os.path.join(current_dir, "assets", "home.jpg")
+background_image = get_base64_of_bin_file(background_image_path)
 
 background_image_style = f"""
     <style>
@@ -108,53 +109,103 @@ with col1:
         '<div class="input-label">Overall Quality</div>', unsafe_allow_html=True
     )
     overall_qual = st.number_input(
-        "", min_value=1, max_value=10, value=5, key="overall_qual"
+        "Overall Quality",
+        min_value=1,
+        max_value=10,
+        value=5,
+        key="overall_qual",
+        label_visibility="collapsed",
     )
 
     st.markdown('<div class="input-label">Year Built</div>', unsafe_allow_html=True)
     year_built = st.number_input(
-        "", min_value=1800, max_value=2024, value=2000, key="year_built"
+        "Year Built",
+        min_value=1800,
+        max_value=2024,
+        value=2000,
+        key="year_built",
+        label_visibility="collapsed",
     )
 
     st.markdown(
         '<div class="input-label">Total Basement Area (sq ft)</div>',
         unsafe_allow_html=True,
     )
-    total_bsmt_sf = st.number_input("", min_value=0, value=1000, key="total_bsmt_sf")
+    total_bsmt_sf = st.number_input(
+        "Total Basement Area (sq ft)",
+        min_value=0,
+        value=1000,
+        key="total_bsmt_sf",
+        label_visibility="collapsed",
+    )
 
     st.markdown(
         '<div class="input-label">Living Area (sq ft)</div>', unsafe_allow_html=True
     )
-    gr_liv_area = st.number_input("", min_value=500, value=1000, key="gr_liv_area")
+    gr_liv_area = st.number_input(
+        "Living Area (sq ft)",
+        min_value=500,
+        value=1000,
+        key="gr_liv_area",
+        label_visibility="collapsed",
+    )
 
 with col2:
     st.markdown('<div class="input-label">Garage Cars</div>', unsafe_allow_html=True)
     garage_cars = st.number_input(
-        "", min_value=0, max_value=4, value=2, key="garage_cars"
+        "Garage Cars",
+        min_value=0,
+        max_value=4,
+        value=2,
+        key="garage_cars",
+        label_visibility="collapsed",
     )
 
     st.markdown(
         '<div class="input-label">Full Bathrooms Above Ground</div>',
         unsafe_allow_html=True,
     )
-    full_bath = st.number_input("", min_value=0, max_value=3, value=1, key="full_bath")
+    full_bath = st.number_input(
+        "Full Bathrooms Above Ground",
+        min_value=0,
+        max_value=3,
+        value=1,
+        key="full_bath",
+        label_visibility="collapsed",
+    )
 
     st.markdown(
         '<div class="input-label">Number of Fireplaces</div>', unsafe_allow_html=True
     )
     fireplaces = st.number_input(
-        "", min_value=0, max_value=3, value=1, key="fireplaces"
+        "Number of Fireplaces",
+        min_value=0,
+        max_value=3,
+        value=1,
+        key="fireplaces",
+        label_visibility="collapsed",
     )
 
     st.markdown('<div class="input-label">Year Remodeled</div>', unsafe_allow_html=True)
     year_remod_add = st.number_input(
-        "", min_value=1800, max_value=2024, value=2000, key="year_remod_add"
+        "Year Remodeled",
+        min_value=1800,
+        max_value=2024,
+        value=2000,
+        key="year_remod_add",
+        label_visibility="collapsed",
     )
 
     st.markdown(
         '<div class="input-label">Lot Area (sq ft)</div>', unsafe_allow_html=True
     )
-    lot_area = st.number_input("", min_value=0, value=5000, key="lot_area")
+    lot_area = st.number_input(
+        "Lot Area (sq ft)",
+        min_value=0,
+        value=5000,
+        key="lot_area",
+        label_visibility="collapsed",
+    )
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
