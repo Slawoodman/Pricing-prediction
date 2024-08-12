@@ -6,6 +6,7 @@ import base64
 
 model = joblib.load("house_prices_model.pkl")
 
+
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, "rb") as f:
         data = f.read()
@@ -103,32 +104,56 @@ st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown('<div class="input-label">Overall Quality</div>', unsafe_allow_html=True)
-    overall_qual = st.number_input("", min_value=1, max_value=10, value=5, key="overall_qual")
+    st.markdown(
+        '<div class="input-label">Overall Quality</div>', unsafe_allow_html=True
+    )
+    overall_qual = st.number_input(
+        "", min_value=1, max_value=10, value=5, key="overall_qual"
+    )
 
     st.markdown('<div class="input-label">Year Built</div>', unsafe_allow_html=True)
-    year_built = st.number_input("", min_value=1800, max_value=2024, value=2000, key="year_built")
+    year_built = st.number_input(
+        "", min_value=1800, max_value=2024, value=2000, key="year_built"
+    )
 
-    st.markdown('<div class="input-label">Total Basement Area (sq ft)</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="input-label">Total Basement Area (sq ft)</div>',
+        unsafe_allow_html=True,
+    )
     total_bsmt_sf = st.number_input("", min_value=0, value=1000, key="total_bsmt_sf")
 
-    st.markdown('<div class="input-label">Living Area (sq ft)</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="input-label">Living Area (sq ft)</div>', unsafe_allow_html=True
+    )
     gr_liv_area = st.number_input("", min_value=500, value=1000, key="gr_liv_area")
 
 with col2:
     st.markdown('<div class="input-label">Garage Cars</div>', unsafe_allow_html=True)
-    garage_cars = st.number_input("", min_value=0, max_value=4, value=2, key="garage_cars")
+    garage_cars = st.number_input(
+        "", min_value=0, max_value=4, value=2, key="garage_cars"
+    )
 
-    st.markdown('<div class="input-label">Full Bathrooms Above Ground</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="input-label">Full Bathrooms Above Ground</div>',
+        unsafe_allow_html=True,
+    )
     full_bath = st.number_input("", min_value=0, max_value=3, value=1, key="full_bath")
 
-    st.markdown('<div class="input-label">Number of Fireplaces</div>', unsafe_allow_html=True)
-    fireplaces = st.number_input("", min_value=0, max_value=3, value=1, key="fireplaces")
+    st.markdown(
+        '<div class="input-label">Number of Fireplaces</div>', unsafe_allow_html=True
+    )
+    fireplaces = st.number_input(
+        "", min_value=0, max_value=3, value=1, key="fireplaces"
+    )
 
     st.markdown('<div class="input-label">Year Remodeled</div>', unsafe_allow_html=True)
-    year_remod_add = st.number_input("", min_value=1800, max_value=2024, value=2000, key="year_remod_add")
+    year_remod_add = st.number_input(
+        "", min_value=1800, max_value=2024, value=2000, key="year_remod_add"
+    )
 
-    st.markdown('<div class="input-label">Lot Area (sq ft)</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="input-label">Lot Area (sq ft)</div>', unsafe_allow_html=True
+    )
     lot_area = st.number_input("", min_value=0, value=5000, key="lot_area")
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
