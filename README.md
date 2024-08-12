@@ -1,5 +1,7 @@
 # House Prices Prediction App
 
+![img](server/assets/head.png)
+
 This project implements a house price prediction application using a machine learning model trained on the [House Prices - Advanced Regression Techniques Dataset](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview). It includes a web app which is built by streamlit and ipynb notebook for creating a model.
 
 # Description
